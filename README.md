@@ -5,9 +5,9 @@ Este proyecto es realizado por alumnos de la Universidad Tecnológica de Hermosi
 ## Contenido
 
 #### Stack tecnológico: 
-![Alt text](1*doAg1_fMQKWFoub-6gwUiQ.png) <br>
-![Alt text](1200px-Laravel.svg.png) <br>
-![Alt text](React.svg.png)<br>
+![Alt text](1*doAg1_fMQKWFoub-6gwUiQ.png) 
+![Alt text](1200px-Laravel.svg.png) 
+![Alt text](React.svg.png)
 
 ## Colecciones
 ### Usuarios
