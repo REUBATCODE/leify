@@ -8,6 +8,9 @@ Este proyecto es realizado por alumnos de la Universidad Tecnológica de Hermosi
 
 ### Detalles técnicos
 
+###Stack tecnológico: 
+React, Laravel y MongoDB.
+
 - Los usuarios y los artistas son entidades distintas.
 
 ##Colecciones
