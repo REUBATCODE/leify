@@ -4,10 +4,6 @@
 Este proyecto es realizado por alumnos de la Universidad Tecnológica de Hermosillo. La aplicación pretende ser un sitio como Spotify y Soundcloud, donde usuarios pueden ver y calificar música, mientras que ésta última es subida por los artistas.
 ## Contenido
 
-#### Stack tecnológico: 
-![Alt text](1*doAg1_fMQKWFoub-6gwUiQ.png) 
-![Alt text](1200px-Laravel.svg.png) 
-![Alt text](React.svg.png)
 
 ## Colecciones
 ### Usuarios
