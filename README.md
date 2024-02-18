@@ -1,62 +1,28 @@
-# Leify
+# Nombre del Proyecto
 
-## Introducción
-Este proyecto es realizado por alumnos de la Universidad Tecnológica de Hermosillo. La aplicación pretende ser un sitio como Spotify y Soundcloud, donde usuarios pueden ver y calificar música, mientras que ésta última es subida por los artistas.
-## Contenido
+Breve descripción del proyecto: qué hace, para quién es, qué tecnologías utiliza, etc.
 
+## Comenzando
 
-## Colecciones
-### Usuarios
-ID de usuario <br>
-Nombre<br>
-Correo electrónico<br>
-Contraseña (almacenada de forma segura)<br>
-Listas de reproducción (referencias a la colección de Listas de Reproducción)<br>
-Imagen de usuario<br>
+Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas. Sigue estos pasos para configurar el entorno de desarrollo.
 
-### Canciones
-ID de canción<br>
-Título<br>
-ID del artista (referencia a la colección de Artistas)<br>
-ID del álbum (referencia a la colección de Álbumes)<br>
-Género<br>
-Duración<br>
-URL del archivo de audio<br>
+### Prerrequisitos
 
-### Artistas
-ID de artista
-Nombre
-Bio
-Canciones (referencias a la colección de Canciones)
-Imagen de artista
+Lo que necesitas para instalar el software y cómo instalarlos. Por ejemplo:
 
-### Álbumes
-ID de álbum<br>
-Título<br>
-Año de lanzamiento<br>
-Canciones (referencias a la colección de Canciones)<br>
-ID del artista (referencia a la colección de Artistas)<br>
-Imagen de album<br>
+- Composer
+- Node.js y npm
+- PHP (especifica la versión)
+- Cualquier otro software o dependencia necesaria
 
-### Listas de Reproducción
-ID de lista de reproducción<br>
-Título<br>
-ID del usuario (referencia a la colección de Usuarios)<br>
-ID de Canciones (referencias a la colección de Canciones)<br>
+### Instalación
 
-### Reproducciones
-ID de reproducción<br>
-ID del usuario (referencia a la colección de Usuarios)<br>
-ID de canción (referencia a la colección de Canciones)<br>
-Fecha y hora de reproducción<br>
+Una serie de ejemplos paso a paso que te indican cómo ejecutar un entorno de desarrollo.
 
-## Entidad-Relación
-![image](https://github.com/REUBATCODE/leify/assets/126991341/40d745af-64fe-4f61-b035-6f0a3cf2c285)
+#### Instalación de Dependencias
 
-## Resultados y Discusión
-...
+Para iniciar la instalación de las dependencias que necesitarás para ejecutar el proyecto, debes comenzar con Composer y npm.
 
-## Conclusión
-...
-
-## Referencias
+```bash
+composer install
+npm install
