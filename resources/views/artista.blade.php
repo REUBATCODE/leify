@@ -48,7 +48,7 @@
             </ul>
         </nav>
     </div>
-    <div id="imagenFondo" class="bg-cover bg-center mt-2" style="background-color: black;">
+    <div id="imagenFondo" class="bg-cover bg-center mt-3" style="background-color: black;">
         <div class="container px-4 sm:px-0">
             <div class="flex flex-col sm:flex-row justify-center space-x-4">
                 <img class="rounded-3xl w-40 h-50 object-cover mb-4"
@@ -60,9 +60,9 @@
                         <p class="text-center text-2xl">The best rapper in the world</p>
                     </div>
                     <ul class="list-none flex justify-center space-x-4 mt-5">
-                        <li><a href="#" class="text-2xl text-white">Canciones</a></li>
-                        <li><a href="#" class="text-2xl text-white">Album</a></li>
-                        <li><a href="#" class="text-2xl text-white">Social Media</a></li>
+                        <li><a href="#" class="text-1xl text-white">Canciones</a></li>
+                        <li><a href="#" class="text-1xl text-white">Album</a></li>
+                        <li><a href="#" class="text-1xl text-white">Social Media</a></li>
                     </ul>
                 </div>
             </div>
@@ -106,7 +106,15 @@
                     <img class="w-full h-40 object-cover"
                         src="https://indierocks.sfo3.cdn.digitaloceanspaces.com/wp-content/uploads/bfi_thumb/Eminem_2023-348z5adr91clhqpgzno1ngnyizdhrf31tjsj6ekrgsuml5vu6ep86lvrswee68.png"
                         alt="">
-                    <h3 class="text-center text-xl font-bold mt-2">Album 1</h3>
+                    <h3 class="text-center text-1xl font-bold mt-2">Album 1</h3>
+                </a>
+            </div>
+            <div class="bg-gray-300 p-4">
+                <a href="#">
+                    <img class="w-full h-40 object-cover"
+                        src="https://indierocks.sfo3.cdn.digitaloceanspaces.com/wp-content/uploads/bfi_thumb/Eminem_2023-348z5adr91clhqpgzno1ngnyizdhrf31tjsj6ekrgsuml5vu6ep86lvrswee68.png"
+                        alt="">
+                    <h3 class="text-center text-1xl font-bold mt-2">Album 1</h3>
                 </a>
             </div>
             <div class="bg-gray-300 p-4">
@@ -122,33 +130,25 @@
                     <img class="w-full h-40 object-cover"
                         src="https://indierocks.sfo3.cdn.digitaloceanspaces.com/wp-content/uploads/bfi_thumb/Eminem_2023-348z5adr91clhqpgzno1ngnyizdhrf31tjsj6ekrgsuml5vu6ep86lvrswee68.png"
                         alt="">
-                    <h3 class="text-center text-xl font-bold mt-2">Album 1</h3>
-                </a>
-            </div>
-            <div class="bg-gray-300 p-4">
-                <a href="#">
-                    <img class="w-full h-40 object-cover"
-                        src="https://indierocks.sfo3.cdn.digitaloceanspaces.com/wp-content/uploads/bfi_thumb/Eminem_2023-348z5adr91clhqpgzno1ngnyizdhrf31tjsj6ekrgsuml5vu6ep86lvrswee68.png"
-                        alt="">
-                    <h3 class="text-center text-xl font-bold mt-2">Album 1</h3>
+                    <h3 class="text-center text-1xl font-bold mt-2">Album 1</h3>
                 </a>
             </div>
             <!-- Agregen más albums -->
         </div>
     </div>
     <div class="mt-3 py-4 bg-yellow-600">
-        <h2 class="text-2xl text-center font-bold mb-2">Social Media</h2>
+        <h2 class="text-1xl text-center font-bold mb-2">Social Media</h2>
         <div class="flex justify-center space-x-12">
-            <a href="#" class="text-4xl text-black">
+            <a href="#" class="text-2xl text-black">
                 <i class="fab fa-facebook"></i>
             </a>
-            <a href="#" class="text-4xl text-black">
+            <a href="#" class="text-2xl text-black">
                 <i class="fab fa-twitter"></i>
             </a>
-            <a href="#" class="text-4xl text-black">
+            <a href="#" class="text-2xl text-black">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="#" class="text-4xl text-black">
+            <a href="#" class="text-2xl text-black">
                 <i class="fab fa-youtube"></i>
             </a>
         </div>
