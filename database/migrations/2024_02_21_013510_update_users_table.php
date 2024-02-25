@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users',function($table){
-            $table->string('bio');
-            $table->string('role_id');
+            $table->string('bio')->after('password');
+            $table->string('role_id')->after('bio');
             $table->string('image')->after('name');
         });
     }
