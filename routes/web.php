@@ -21,7 +21,9 @@ Route::get('/', function () {
 Route::get('/artista', function () {
     return view('artista');
 });
-
+Route::get('/album', function () {
+    return view('album');
+});
 
 
 Route::get('/dashboard', function () {
