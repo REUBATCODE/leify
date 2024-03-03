@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use PHPUnit\Framework\Attributes\Group;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +23,9 @@ Route::get('/', function () {
 
 Route::get('/artista', function () {
     return view('artista');
+});
+Route::prefix('/artists')->group(function () {
+    Route::get('/',[ProfileController::class, 'index'])->name('artists.list');
 });
 
 
