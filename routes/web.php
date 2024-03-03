@@ -26,6 +26,7 @@ Route::get('/artista', function () {
 });
 Route::prefix('/artists')->group(function () {
     Route::get('/',[ProfileController::class, 'index'])->name('artists.list');
+    Route::get('/view/{id}',[ProfileController::class, 'view'])->name('artists.view');
 });
 
 

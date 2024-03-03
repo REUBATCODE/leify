@@ -62,4 +62,8 @@ class ProfileController extends Controller
         $users = User::all();
         return view('artists.index', compact('users'));
     }
+    public function view($id){
+        $user = User::find($id);
+        return view('artists.view', compact('user'));
+    }
 }
