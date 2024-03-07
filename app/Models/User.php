@@ -44,6 +44,14 @@ class User extends Authenticatable
     ];
     public function roles()
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Role::class,'role_user');
+    }
+    public function songs()
+    {
+        return $this->belongsToMany(Song::class,'song_user');
+    }
+    public function albums()
+    {
+        return $this->belongsToMany(Album::class,'album_user');
     }
 }

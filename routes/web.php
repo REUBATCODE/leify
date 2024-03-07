@@ -19,7 +19,7 @@ use Symfony\Component\HttpKernel\Profiler\Profile;
 
 Route::get('/', function () {
     return view('landing');
-});
+})->name('landing');
 
 Route::get('/artista', function () {
     return view('artista');
