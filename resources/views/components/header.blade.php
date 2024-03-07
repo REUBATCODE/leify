@@ -3,7 +3,9 @@
       <input type="text" placeholder="Busca letras y más" class="px-5 py-2 border-2 border-gray-300 focus:border-gray-500 outline-none">
       
       <div class="brand">
-        <img src="{{ asset('leify.png') }}" alt="LEIFY Logo" class="h-8">
+        <a href="{{route('landing')}}">
+          <img src="{{ asset('leify.png') }}" alt="LEIFY Logo" class="h-8">
+      </a>      
     </div>
       
     <div class="flex items-center space-x-2">
@@ -22,7 +24,7 @@
             <span class="text-gray-500">|</span>
             <a href="#" class="text-white hover:text-gray-200">VIDEOS</a>
             <span class="text-gray-500">|</span>
-            <a href="#" class="text-white hover:text-gray-200">ARTISTAS</a>
+            <a href="{{route('artists.list')}}" class="text-white hover:text-gray-200">ARTISTAS</a>
             <span class="text-gray-500">|</span>
             <a href="#" class="text-white hover:text-gray-200"> <i class="fab fa-facebook-f"></i> </a>
             <span class="text-gray-500">|</span>
