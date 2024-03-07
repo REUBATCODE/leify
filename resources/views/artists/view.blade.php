@@ -17,9 +17,92 @@
     <body class="font-sans bg-yellow-50 text-gray-800">
         @component('components.header')
         @endcomponent          
-        <h1>Estamos en la vista individual de cada artista</h1>
+        <div id="imagenFondo" class="bg-cover bg-center mt-3 mb-3 py-3" style="background-color: white;">
+            <div class="container px-4 sm:px-0">
+                <div class="flex flex-col sm:flex-row justify-center space-x-4">
+                    <img class="rounded-3xl w-40 h-50 object-cover mb-4"
+                        src="{{ asset($user->image)}}"
+                        alt="">
+                    <div class="text-yellow-400 mt-3 text-center flex flex-col justify-center">
+                        <div>
+                            <h1 class="text-5xl font-bold text-center">{{$user->name}}</h1>
+                            <p class="text-center text-2xl">
+                                El Mejor 
+                                @foreach ($user->roles->unique('name') as $role) 
+                                    @if ($role->name == 'SUPERADMINISTRADOR')
+                                        Superadministrador
+                                    @elseif ($role->name == 'ADMINISTRADOR')
+                                        Administrador
+                                    @elseif ($role->name == 'ARTISTA')
+                                        Artista
+                                    @elseif ($role->name == 'USUARIO')
+                                        Usuario
+                                    @endif
+                                @endforeach
+                            </p>
+                        </div>
+                        <ul class="list-none flex justify-center space-x-4 mt-5">
+                            <li><a href="#canciones" class="text-1xl text-black">Canciones</a></li>
+                            <li><a href="#albums" class="text-1xl text-black">Album</a></li>
+                            <li><a href="#" class="text-1xl text-black">Social Media</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section id = "bibliografia">
+            <div class="container mx-auto flex flex-col sm:flex-row">
+                <div class="flex-1">
+                    <h2 class="text-2xl text-center font-bold mb-2">Bibliografía</h2>
+                    <p class="text-justify mx-2">{{$user->bio}}</p>
+                </div>
+                <section id = "canciones">
+                    <div class="flex-1 flex justify-center">
+                        <div class="w-full">
+                            <h2 class="text-2xl text-center font-bold mb-2">Canciones</h2>
+                            <table class="table-auto w-full">
+                                <thead>
+                                    <tr>
+                                        <th class="px-4 py-2">Nombres</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border px-4 py-2">
+                                            <ul style="columns: 2;">
+                                                @foreach ($user->songs as $song)
+                                                    <li>{{$song->name}}</li>
+                                                @endforeach
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <!-- Agregen más canciones -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <hr class="py-3 mt-5">
+        <section id = "albums" class="py-3 mb-3">
+            <div class="container mx-auto">
+                <h2 class="text-2xl text-center font-bold mb-2">Albums</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    @foreach ($user->albums as $album)
+                        <div class="bg-gray-300 p-3 mb-5 mt-2">
+                            <a href="#">
+                                <img class="w-full h-40 object-cover"
+                                    src="{{ asset($album->image)}}"
+                                    alt="">
+                                <h3 class="text-center text-1xl font-bold mt-2">{{$album->name}}</h3>
+                                <a id="viewAlbum" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex-auto" href="#">Actualizar</a>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
         @component('components.footer')
-        
         @endcomponent
     </body>
 </html>

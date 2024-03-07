@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('bio')->after('password');
             $table->string('role_id')->after('bio');
             $table->string('image')->after('name');
+            $table->string('song_id')->after('role_id');
         });
     }
 
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->dropColumn('bio');
             $table->dropColumn('role_id');
             $table->dropColumn('image');
+            $table->dropColumn('song_id');
         });
     }
 };
