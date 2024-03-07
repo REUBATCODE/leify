@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('role_id')->after('bio');
             $table->string('image')->after('name');
             $table->string('song_id')->after('role_id');
+            $table->string('bio')->after('password')->nullable();
+            $table->string('role_id')->after('bio')->nullable();
+            $table->string('image')->after('name')->nullable();
         });
     }
 
