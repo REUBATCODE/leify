@@ -29,6 +29,9 @@ Route::prefix('/artists')->group(function () {
     Route::get('/',[ProfileController::class, 'index'])->name('artists.list');
     Route::get('/view/{id}',[ProfileController::class, 'view'])->name('artists.view');
     Route::get('/update/{id}', [ProfileController::class, 'updateArtist'])->name('artists.update');
+    Route::get('/delete/{id}', [ProfileController::class, 'deleteArtist'])->name('artists.delete');
+    Route::get('/create', [ProfileController::class, 'createArtist'])->name('artists.create');
+    Route::post('/create', [ProfileController::class, 'storeArtist'])->name('artists.store');
 });
 
 Route::get('/album', function () {
