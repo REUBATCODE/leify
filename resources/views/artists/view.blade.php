@@ -17,7 +17,7 @@
     <body class="font-sans bg-yellow-50 text-gray-800">
         @component('components.header')
         @endcomponent          
-        <div id="imagenFondo" class="bg-cover bg-center mt-3 mb-3 py-3" style="background-color: white;">
+        <div id="imagenFondo" class="bg-cover bg-center mb-3 py-3" style="background-color: white;">
             <div class="container px-4 sm:px-0">
                 <div class="flex flex-col sm:flex-row justify-center space-x-4">
                     <img class="rounded-3xl w-40 h-50 object-cover mb-4"
@@ -25,8 +25,13 @@
                         alt="">
                     <div class="text-yellow-400 mt-3 text-center flex flex-col justify-center">
                         <div>
-                            <h1 class="text-5xl font-bold text-center">{{$user->name}}</h1>
-                            <p class="text-center text-2xl">
+                            <div class="flex items-center justify-between mb-3">
+                                <h1 class="text-5xl font-bold">{{$user->name}}</h1>
+                                <a href="{{route ('artists.update',$user->id)}}" class="ml-80 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+                                    Actualizar
+                                </a>
+                            </div>                            
+                            <p class="text-left text-2xl">
                                 El Mejor 
                                 @foreach ($user->roles->unique('name') as $role) 
                                     @if ($role->name == 'SUPERADMINISTRADOR')
@@ -41,7 +46,7 @@
                                 @endforeach
                             </p>
                         </div>
-                        <ul class="list-none flex justify-center space-x-4 mt-5">
+                        <ul class="list-none flex space-x-4 mt-5">
                             <li><a href="#canciones" class="text-1xl text-black">Canciones</a></li>
                             <li><a href="#albums" class="text-1xl text-black">Album</a></li>
                             <li><a href="#" class="text-1xl text-black">Social Media</a></li>
@@ -85,7 +90,7 @@
             </div>
         </section>
         <hr class="py-3 mt-5">
-        <section id = "albums" class="py-3 mb-3">
+        <section id = "albums" class="">
             <div class="container mx-auto">
                 <h2 class="text-2xl text-center font-bold mb-2">Albums</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -96,7 +101,7 @@
                                     src="{{ asset($album->image)}}"
                                     alt="">
                                 <h3 class="text-center text-1xl font-bold mt-2">{{$album->name}}</h3>
-                                <a id="viewAlbum" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex-auto" href="#">Actualizar</a>
+                                <a id="viewAlbum" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex-auto" href="#">Ver Más</a>
                             </a>
                         </div>
                     @endforeach
