@@ -53,28 +53,6 @@
                             <input id="password_confirmation" name="password_confirmation" type="password" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                             <p class="mt-2 text-sm text-red-600">{{ $errors->first('password_confirmation') }}</p>
                         </div>
-                        <div>
-                            <label for="bio" class="block text-sm font-medium text-gray-700">Bio</label>
-                            <textarea id="bio" name="bio" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
-                            <p class="mt-2 text-sm text-red-600">{{ $errors->first('bio') }}</p>
-                        </div>
-                        <div>
-                            <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
-                            <select id="role" name="role_id" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                @foreach ($roles as $role)
-                                    <option value="{{$role->id}}">{{$role->name}}</option>
-                                @endforeach
-                            </select>
-                            <p class="mt-2 text-sm text-red-600">{{ $errors->first('role') }}</p>
-                        </div>
-                        <div>
-                            <label for="song_id">Song</label>
-                            <select id="song_id" name="song_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                @foreach ($songs as $song)
-                                    <option value="{{$song->id}}">{{$song->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
                         <div class="flex items-center justify-end mt-4">
                             <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                                 {{ __('Already registered?') }}
