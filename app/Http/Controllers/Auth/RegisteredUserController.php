@@ -12,12 +12,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
-use App\Models\Album;
-use App\Models\Artist;
 use App\Models\Role;
 use App\Models\Song;
-use App\Http\Controllers\RolController;
-use App\Http\Controllers\SongController;
+
 
 class RegisteredUserController extends Controller
 {
@@ -41,7 +38,7 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'], // Asegúrate de que la tabla se llame 'users'
-            'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', 'string', Rules\Password::defaults()],
             'image' => ['nullable', 'string', 'max:255'], // Asumiendo que es una URL o un path
             'bio' => ['nullable', 'string', 'max:255'],
             'role_id' => ['required', 'integer'], // Asegúrate de validar correctamente basado en tus necesidades
@@ -60,8 +57,6 @@ class RegisteredUserController extends Controller
     
         // Asumiendo que tienes configurado el evento Registered y quieres dispararlo
         event(new Registered($user));
-    
-        Auth::login($user);
     
         return redirect(RouteServiceProvider::HOME);
     }
