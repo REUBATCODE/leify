@@ -74,10 +74,10 @@ class ProfileController extends Controller
         $songs = Song::all();
         return view('artists.update', compact('roles','songs','user'));
     }
-    public function createArtist(){
+    public function create(){
         $roles = Role::all();
         $songs = Song::all();
-        return view('artists.create', compact('roles','songs'));
+        return view('auth.register', compact('roles','songs'));
     }
     public function storeArtist(Request $request)
     {
@@ -108,10 +108,10 @@ class ProfileController extends Controller
             'song_id' => $validated['song_id'],
         ]);
         if($user){
-            return redirect()->route('Landing')->with('success','Artist created successfully');
+            return redirect()->route('artists.list')->with('success','Artist created successfully');
         }
         else{
-            return redirect()->route('register')->with('error','Artist creation failed');
+            return redirect()->route('artists.create')->with('error','Artist creation failed');
         }
 
     }

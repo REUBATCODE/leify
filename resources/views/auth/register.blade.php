@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Leify</title>
+        <title>Registrar</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -21,6 +21,7 @@
                 <form method="POST" action="{{ route('artists.store') }}" class="mt-8 max-w-md mx-auto">
                     @csrf
                     <div class="space-y-4">
+                        <h1 class="text-center text-4xl">Registrarse</h1>
                         <!-- Name -->
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
@@ -29,7 +30,7 @@
                         </div>
                         <div>
                             <label for="">Image</label>
-                            <input type="text" name = "image" class = "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="URL the image">
+                            <input type="text" name="image" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="URL the image">
                             @if ($errors->has('image'))
                                 <p class="mt-2 text-sm text-red-600">{{ $errors->first('image') }}</p>
                             @endif
@@ -59,7 +60,7 @@
                         </div>
                         <div>
                             <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
-                            <select id="role" name="role" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <select id="role" name="role_id" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                                 @foreach ($roles as $role)
                                     <option value="{{$role->id}}">{{$role->name}}</option>
                                 @endforeach
@@ -67,9 +68,9 @@
                             <p class="mt-2 text-sm text-red-600">{{ $errors->first('role') }}</p>
                         </div>
                         <div>
-                            <label>Song</label>
-                            <select>
-                                @foreach ($songs as $song )
+                            <label for="song_id">Song</label>
+                            <select id="song_id" name="song_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                @foreach ($songs as $song)
                                     <option value="{{$song->id}}">{{$song->name}}</option>
                                 @endforeach
                             </select>
@@ -78,13 +79,30 @@
                             <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                                 {{ __('Already registered?') }}
                             </a>
-                            <x-primary-button class="ml-4">
-                                {{ __('Register') }}
-                            </x-primary-button>
+                            <button type="submit" class="ml-4 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Register
+                            </button>
                         </div>
                 </form>        
             </div> 
         @component('components.footer')
         @endcomponent
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const form = document.querySelector("form");
+
+                function validatePasswords(event) {
+                    const password = document.getElementById("password").value;
+                    const confirmPassword = document.getElementById("password_confirmation").value;
+
+                    if(password !== confirmPassword) {
+                        event.preventDefault(); // Prevent form from submitting
+                        alert("Las contraseñas no coinciden."); // Error message
+                    }
+                }
+
+                form.addEventListener("submit", validatePasswords);
+            });
+        </script>
     </body>
 </html>

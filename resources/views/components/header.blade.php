@@ -9,7 +9,7 @@
     </div>
       
     <div class="flex items-center space-x-2">
-        <a href="{{ route('artists.create') }}" class="text-gray-700 hover:text-gray-900">REGISTRARSE</a>
+        <a href="{{ route('register') }}" class="text-gray-700 hover:text-gray-900">REGISTRARSE</a>
         <span class="text-gray-500">|</span>
         <a href="{{ route('login') }}" class="text-gray-700 hover:text-gray-900">INICIAR SESIÓN</a>
       </div>
