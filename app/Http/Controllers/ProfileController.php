@@ -74,10 +74,10 @@ class ProfileController extends Controller
         $songs = Song::all();
         return view('artists.update', compact('roles','songs','user'));
     }
-    public function create(){
+    public function createArtist(){
         $roles = Role::all();
         $songs = Song::all();
-        return view('auth.register', compact('roles','songs'));
+        return view('artists.create', compact('roles','songs'));
     }
     public function storeArtist(Request $request)
     {

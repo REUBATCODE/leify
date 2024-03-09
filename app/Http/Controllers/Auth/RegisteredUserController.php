@@ -26,7 +26,9 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $roles = Role::all();
+        $songs = Song::all();
+        return view('auth.register', compact('roles', 'songs'));
     }
 
     /**
