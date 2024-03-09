@@ -36,9 +36,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/register', [RegisteredUserController::class, 'create'])
-                ->middleware('guest')
-                ->name('register.create');
+Route::get('/register', [RegisteredUserController::class, 'create'])->name('register.create');
 
 Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.store');
 
