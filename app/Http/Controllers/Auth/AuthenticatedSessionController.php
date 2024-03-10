@@ -41,7 +41,7 @@ class AuthenticatedSessionController extends Controller
         }
         
         // Para cualquier otro usuario, redirige a la página de landing
-        return redirect(RouteServiceProvider::LANDING);
+        return redirect(route('landing'));
     }
 
     /**
