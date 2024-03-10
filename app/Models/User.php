@@ -19,8 +19,13 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable = [
         'name',
+        'image',
         'email',
         'password',
+        'bio',
+        'role_id',
+        'song_id',
+
     ];
 
     /**
@@ -53,5 +58,9 @@ class User extends Authenticatable implements MustVerifyEmail
     public function albums()
     {
         return $this->belongsToMany(Album::class,'album_user');
+    }
+    public function hasRole($role)
+    {
+        return $this->roles->contains('name', $role);
     }
 }
