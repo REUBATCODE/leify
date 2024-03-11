@@ -15,22 +15,21 @@
     <!-- Styles -->
     @vite('resources/css/app.css')
 </head>
-
 <body class="font-sans bg-yellow-50 text-gray-800">
     @component('components.header')
     @endcomponent
     <main class="">
-        <div class="flex w-full h-full bg-fixed justify-evenly bg-center bg-no-repeat bg-[url('https://m.media-amazon.com/images/I/6113DHPqk7L._UF1000,1000_QL80_.jpg')] bg-gray-700 bg-blend-multiply sm:min-h-96">
+        <div class="flex w-full h-full bg-fixed justify-evenly bg-center bg-no-repeat bg-[url('{{$album->image}}')] bg-gray-700 bg-blend-multiply sm:min-h-96">
             <div class="flex">
                 <div class="lg:h-96 lg:w-96 md:h-74 md:w-74 sm:h-64 sm:w-64 h-40 w-40 bg-slate-100 ml-2 mt-4 mb-10">
                     <img class="bg-cover h-full"
-                        src="https://m.media-amazon.com/images/I/6113DHPqk7L._UF1000,1000_QL80_.jpg" alt="">
+                        src="{{$album->image}}" alt="">
                 </div>
                 <div class="flex-col ml-6 mt-9">
                     <p class="mb-3 text-yellow-500 font-semibold">ALBUM</p>
-                    <h1 class="text-lg sm:text-2xl md:text-5xl lg:text-7xl text-white font-bold mb-3">Ride the Lightning </h1>
-                    <p class="mb-3 text-white"><a href="">Mettallica</a></p>
-                    <span class="mb-3 text-white">Released July 27, 1984 </span>
+                    <h1 class="text-lg sm:text-2xl md:text-5xl lg:text-7xl text-white font-bold mb-3">{{$album->name}}</h1>
+                    <p class="mb-3 text-white"><a href="">{{$album->user_id}}</a></p>
+                    <span class="mb-3 text-white">Released on {{$album->date}}</span>
                 </div>
             </div>
             <div class="flex w-70 mt-9">
