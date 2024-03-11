@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Album;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('landing');
 })->name('landing');
+
+Route::prefix('/albums')->group(function () {
+    Route::get('/', [AlbumController::class, 'index'])->name('albums.list');
+    Route::get('/view/{id}', [AlbumController::class, 'view'])->name('albums.view');
+
+});
 
 // Artists routes
 Route::prefix('/artists')->group(function () {

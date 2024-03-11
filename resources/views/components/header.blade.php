@@ -22,7 +22,7 @@
             <span class="text-gray-500">|</span>
             <a href="#" class="text-white hover:text-gray-200">CANCIONES</a>
             <span class="text-gray-500">|</span>
-            <a href="#" class="text-white hover:text-gray-200">VIDEOS</a>
+            <a href="{{route('albums.list')}}" class="text-white hover:text-gray-200">ALBUMES</a>
             <span class="text-gray-500">|</span>
             <a href="{{route('artists.list')}}" class="text-white hover:text-gray-200">ARTISTAS</a>
             <span class="text-gray-500">|</span>
