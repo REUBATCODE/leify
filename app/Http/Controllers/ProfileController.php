@@ -65,8 +65,8 @@ class ProfileController extends Controller
         return view('artists.index', compact('users'));
     }
     public function view($id){
-        $user = User::findOrFail($id);
-        return view('artists.view', compact('user'));
+        $artist = User::findOrFail($id);
+        return view('artists.view', compact('artist'));
     }
     public function updateArtist($id){
         $user = User::findOrFail($id);
