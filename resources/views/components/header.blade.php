@@ -22,14 +22,6 @@
         @endif
       @else
         <div class="relative">
-<<<<<<<<< Temporary merge branch 1
-          <button class="flex items-center space-x-2 focus:outline-none">
-            <img src="{{ $user->image }}" alt="User Avatar" class="h-8 w-8 rounded-full">
-            <span class="text-gray-700 hover:text-gray-900">{{ Auth::user()->name }}</span>
-          </button>
-          <div class="absolute right-0 mt-2 py-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg">
-            <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Dashboard</a>
-=========
           <button class="flex items-center space-x-2 focus:outline-none" onclick="toggleMenu()">
             <img src="{{ $user->image }}" alt="User Avatar" class="h-8 w-8 rounded-full">
             <span class="text-gray-700 hover:text-gray-900">{{ Auth::user()->name }}</span>
@@ -37,7 +29,6 @@
           <div id = "menuDesplegable" class="hidden absolute right-0 mt-2 py-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg" >
             <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Dashboard</a>
             <a href="{{ route('profile.edit',$user) }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900">Perfil Editar</a>
->>>>>>>>> Temporary merge branch 2
             <a href="{{ route('logout') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:text-gray-900" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar Sesión</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
               @csrf
