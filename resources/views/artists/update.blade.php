@@ -17,9 +17,8 @@
     <body class="font-sans bg-yellow-50 text-gray-800">
         @component('components.header')
         @endcomponent          
-            <form method="POST" action="{{route('artists.update', $user->id)}}" enctype="multipart/form-data" class="max-w-4xl mx-auto p-5">
+            <form method="POST" action="{{route('profile.update', $user->id)}}" enctype="multipart/form-data" class="max-w-4xl mx-auto p-5">
                 @csrf
-                @method('PUT')
             
                 <div class="mb-6">
                     <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nombre:</label>

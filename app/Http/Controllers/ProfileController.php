@@ -19,8 +19,13 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $songs = Song::all(); // Recuperar todas las canciones
+        $roles = Role::all(); // Recuperar todos los roles
+    
         return view('profile.edit', [
             'user' => $request->user(),
+            'songs' => $songs,
+            'roles' => $roles,
         ]);
     }
 
@@ -29,6 +34,8 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+        $songs = Song::all();
+        $roles = Role::all();
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
@@ -37,7 +44,12 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return redirect()->route('profile.edit')->with([
+            'status' => 'profile-updated',
+            'songs' => $songs,
+            'roles' => $roles,
+        ]);
+        
     }
 
     /**
