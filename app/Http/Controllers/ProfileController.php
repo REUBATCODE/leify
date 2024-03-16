@@ -11,62 +11,72 @@ use Illuminate\View\View;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Song;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
+    public function edit(Request $request,$id): View
     {
+        $user = User::findOrFail($id);
+        $songs = Song::all(); // Recuperar todas las canciones
+        $roles = Role::all(); // Recuperar todos los roles
+    
         return view('profile.edit', [
-            'user' => $request->user(),
+            'user' => $user,
+            'songs' => $songs,
+            'roles' => $roles,
+
         ]);
     }
 
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(ProfileUpdateRequest $request, $id): RedirectResponse
     {
-        $request->user()->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        $user = User::findOrFail($id);
+        
+        // Si vas a permitir la actualización del password, asegúrate de hashearlo:
+        $validatedData = $request->validated();
+        if (isset($validatedData['password'])) {
+            $validatedData['password'] = Hash::make($validatedData['password']);
         }
 
-        $request->user()->save();
+        $user->fill($validatedData);
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        if (array_key_exists('email', $validatedData)) {
+            $user->email_verified_at = null;
+        }
+
+        $user->save();
+
+        return redirect()->route('profile.edit', $id)->with('status', 'Profile updated successfully!');
     }
+
 
     /**
      * Delete the user's account.
-     */
-    public function destroy(Request $request): RedirectResponse
+     */    
+    public function destroy($id)
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
-
-        $user = $request->user();
-
-        Auth::logout();
-
+        $user = User::findOrFail($id);
         $user->delete();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        return Redirect::route('landing')->with('status', 'User account deleted successfully!');
 
-        return Redirect::to('/');
     }
+    
+    
     public function index(){
         $users = User::all();
         return view('artists.index', compact('users'));
     }
     public function view($id){
-        $user = User::findOrFail($id);
-        return view('artists.view', compact('user'));
+        $artist = User::findOrFail($id);
+        return view('artists.view', compact('artist'));
     }
     public function updateArtist($id){
         $user = User::findOrFail($id);

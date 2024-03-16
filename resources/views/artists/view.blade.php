@@ -21,19 +21,16 @@
             <div class="container px-4 sm:px-0">
                 <div class="flex flex-col sm:flex-row justify-center space-x-4">
                     <img class="rounded-3xl w-40 h-50 object-cover mb-4"
-                        src="{{ asset($user->image)}}"
+                        src="{{ asset($artist->image)}}"
                         alt="">
                     <div class="text-yellow-400 mt-3 text-center flex flex-col justify-center">
                         <div>
                             <div class="flex items-center justify-between mb-3">
-                                <h1 class="text-5xl font-bold">{{$user->name}}</h1>
-                                <a href="{{route ('artists.update',$user->id)}}" class="ml-80 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
-                                    Actualizar
-                                </a>
+                                <h1 class="text-5xl font-bold">{{$artist->name}}</h1>
                             </div>                            
                             <p class="text-left text-2xl">
-                                El Mejor 
-                                @foreach ($user->roles->unique('name') as $role) 
+                                El Mejor Artista
+                                @foreach ($artist->roles->unique('name') as $role) 
                                     @if ($role->name == 'SUPERADMINISTRADOR')
                                         Superadministrador
                                     @elseif ($role->name == 'ADMINISTRADOR')
@@ -59,7 +56,7 @@
             <div class="container mx-auto flex flex-col sm:flex-row">
                 <div class="flex-1">
                     <h2 class="text-2xl text-center font-bold mb-2">Bibliografía</h2>
-                    <p class="text-justify mx-2">{{$user->bio}}</p>
+                    <p class="text-justify mx-2">{{$artist->bio}}</p>
                 </div>
                 <section id = "canciones">
                     <div class="flex-1 flex justify-center">
@@ -75,7 +72,7 @@
                                     <tr>
                                         <td class="border px-4 py-2">
                                             <ul style="columns: 2;">
-                                                @foreach ($user->songs as $song)
+                                                @foreach ($artist->songs as $song)
                                                     <li>{{$song->name}}</li>
                                                 @endforeach
                                             </ul>
@@ -94,7 +91,7 @@
             <div class="container mx-auto">
                 <h2 class="text-2xl text-center font-bold mb-2">Albums</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    @foreach ($user->albums as $album)
+                    @foreach ($artist->albums as $album)
                         <div class="bg-gray-300 p-3 mb-5 mt-2">
                             <a href="#">
                                 <img class="w-full h-40 object-cover"
