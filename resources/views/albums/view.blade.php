@@ -28,7 +28,7 @@
                 <div class="flex-col ml-6 mt-9">
                     <p class="mb-3 text-yellow-500 font-semibold">ALBUM</p>
                     <h1 class="text-lg sm:text-2xl md:text-5xl lg:text-7xl text-white font-bold mb-3">{{$album->name}}</h1>
-                    <p class="mb-3 text-white"><a href="">{{$album->user_id}}</a></p>
+                    <p class="mb-3 text-white"><a href="{{route('artists.view', $album->user_id)}}">{{($album->user_id)}}</a></p>
                     <span class="mb-3 text-white">Released on {{$album->date}}</span>
                 </div>
             </div>
