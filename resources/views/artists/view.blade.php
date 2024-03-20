@@ -27,9 +27,18 @@
                         <div>
                             <div class="flex items-center justify-between mb-3">
                                 <h1 class="text-5xl font-bold">{{$artist->name}}</h1>
+<<<<<<< HEAD
                             </div>                            
                             <p class="text-left text-2xl">
                                 El Mejor Artista
+=======
+                                <a href="{{route ('artists.update',$artist->id)}}" class="ml-80 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+                                    Actualizar
+                                </a>
+                            </div>                            
+                            <p class="text-left text-2xl">
+                                El Mejor 
+>>>>>>> f4e0d2e92093cc4774705a3713a83d22de394800
                                 @foreach ($artist->roles->unique('name') as $role) 
                                     @if ($role->name == 'SUPERADMINISTRADOR')
                                         Superadministrador
