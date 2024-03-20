@@ -21,7 +21,8 @@
     @endcomponent
     <main>
         <div class="dark:bg-gray-800 p-5">
-            <h1 class=" text-2xl sm:text-6xl font-bold  text-gray-900 whitespace-nowrap dark:text-white">Todos los Albums</h1>
+            <h1 class=" text-2xl sm:text-6xl font-bold  text-gray-900 whitespace-nowrap dark:text-white">Todos los
+                Albums</h1>
         </div>
         <div class="relative overflow-x-auto shadow-md sm:max-w-full">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -45,24 +46,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($albums as $album)                        
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <td class="px-6 py-4">
-                            <img class="w-16 md:w-32 max-w-full max-h-full" src="{{$album->image}}">
-                        </td>
-                        <th scope="row"
-                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{$album->name}}
-                        </th>
-                        <td class="px-6 py-4">
-                            {{$album->produced}}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{$album->date}}
-                        </td>
-                        <td class="px-6 py-4">
-                            <a class="" href="">ver</a>
-                        </td>
+                    @foreach ($albums as $album)
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <td class="px-6 py-4">
+                                <img class="w-16 md:w-32 max-w-full max-h-full" src="{{ $album->image }}">
+                            </td>
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ $album->name }}
+                            </th>
+                            <td class="px-6 py-4">
+                                {{ $album->produced }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $album->date }}
+                            </td>
+                            <td class="px-6 py-4">
+                                <a class="" href="{{route('albums.view', $album)}}">ver</a>
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
